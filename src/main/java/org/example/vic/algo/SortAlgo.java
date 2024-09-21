@@ -54,4 +54,48 @@ public class SortAlgo {
         // 对基准值右边的子数组进行递归排序。
         quickSort(nums, first + 1, r);
     }
+
+    /**
+     * 归并排序（分治策略）
+     *
+     * @param nums 待排序数组
+     * @param l 起始位置
+     * @param r 终止位置
+     * @param temp 辅助数组
+     */
+    public void mergeSort(ArrayList<Integer> nums, int l, int r, ArrayList<Integer> temp) {
+        // 范围内只有0或1个元素了，无需再排
+        if (l + 1 >= r) {
+            return;
+        }
+
+        // 递归地将数组分成两半
+        int m = l + (r - l) / 2;
+        // 左边排序
+        mergeSort(nums, l, m, temp);
+        // 右边排序
+        mergeSort(nums, m, r, temp);
+
+        // 左子数组开始位置
+        int p = l;
+        // 右子数组开始位置
+        int q = m;
+        // 临时数组当前位置
+        int i = l;
+        // 合并两个已排序的部分数组到临时数组中
+        while (p < m || q < r) {
+            // 右边已经遍历完、或者左边元素<=右边元素，则拷贝左边元素到临时数组
+            if (q >= r || (p < m && nums.get(p) <= nums.get(q))) {
+                temp.set(i++, nums.get(p++));
+            } else {
+                // 拷贝右边到临时数组
+                temp.set(i++, nums.get(q++));
+            }
+        }
+
+        // 排好序的结果，从临时数组拷回原数组
+        for (i = l; i < r; ++i) {
+            nums.set(i, temp.get(i));
+        }
+    }
 }

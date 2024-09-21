@@ -18,4 +18,16 @@ public class SortAlgoTest {
         sortAlgo.quickSort((ArrayList<Integer>) arr, 0, arr.size());
         Assert.assertEquals(Arrays.toString(new int[]{1, 2, 2, 3, 4, 4, 5, 5}), arr.toString());
     }
+
+    @Test
+    public void test_mergeSort() {
+        SortAlgo sortAlgo = new SortAlgo();
+        int[] temp = new int[]{1, 3, 2, 4, 5, 4, 2, 5};
+        List<Integer> arr = Arrays.stream(temp).boxed().collect(Collectors.toList());
+        int[] init = new int[arr.size()];
+        Arrays.fill(init, 0);
+        sortAlgo.mergeSort((ArrayList<Integer>) arr, 0, arr.size(),
+            (ArrayList<Integer>) Arrays.stream(init).boxed().collect(Collectors.toList()));
+        Assert.assertEquals(Arrays.toString(new int[]{1, 2, 2, 3, 4, 4, 5, 5}), arr.toString());
+    }
 }
