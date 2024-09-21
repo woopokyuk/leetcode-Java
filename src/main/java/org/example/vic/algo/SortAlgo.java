@@ -1,6 +1,9 @@
 package org.example.vic.algo;
 
+import static java.util.Collections.swap;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * SortAlgo
@@ -96,6 +99,20 @@ public class SortAlgo {
         // 排好序的结果，从临时数组拷回原数组
         for (i = l; i < r; ++i) {
             nums.set(i, temp.get(i));
+        }
+    }
+
+    /**
+     * 插入排序
+     *
+     * @param nums 待排序数组
+     * @param n 数组长度
+     */
+    public void insertSort(ArrayList<Integer> nums, int n) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j > 0 && nums.get(j) < nums.get(j-1); --j) {
+                swap(nums, j, j-1);
+            }
         }
     }
 }
