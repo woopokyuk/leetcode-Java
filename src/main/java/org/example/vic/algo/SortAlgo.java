@@ -115,4 +115,27 @@ public class SortAlgo {
             }
         }
     }
+
+    /**
+     * 冒泡排序
+     *
+     * @param nums 待排序数组
+     * @param n 数组长度
+     */
+    public void bubbleSort(ArrayList<Integer> nums, int n) {
+        // 是否交换过了
+        boolean swapped = false;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j < n - i + 1; ++j) {
+                if (nums.get(j) < nums.get(j - 1)) {
+                    swap(nums, j, j - 1);
+                    swapped = true;
+                }
+            }
+            // 如果整个遍历过程未发生交换，说明已是有序的了。提前结束
+            if (!swapped) {
+                break;
+            }
+        }
+    }
 }
