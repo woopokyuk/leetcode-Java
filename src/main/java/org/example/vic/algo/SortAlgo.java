@@ -138,4 +138,24 @@ public class SortAlgo {
             }
         }
     }
+
+    /**
+     * 选择排序
+     *
+     * @param nums 待排序数组
+     * @param n 数组长度
+     */
+    public void selectSort(ArrayList<Integer> nums, int n) {
+        int mid;
+        for (int i = 0; i < n - 1; ++i) {
+            mid = i;
+            for (int j = i + 1; j < n; ++j) {
+                if (nums.get(j) < nums.get(mid)) {
+                    mid = j;
+                }
+            }
+            // 找到未排序部分最小的那个，放到该部分的开头位置
+            swap(nums, mid, i);
+        }
+    }
 }

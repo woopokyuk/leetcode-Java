@@ -48,4 +48,13 @@ public class SortAlgoTest {
         sortAlgo.bubbleSort((ArrayList<Integer>) arr, arr.size());
         Assert.assertEquals(Arrays.toString(new int[]{1, 2, 2, 3, 4, 4, 5, 5}), arr.toString());
     }
+
+    @Test
+    public void test_selectSort() {
+        SortAlgo sortAlgo = new SortAlgo();
+        int[] temp = new int[]{4, 1, 3, 1, 5, 2};
+        List<Integer> arr = Arrays.stream(temp).boxed().collect(Collectors.toList());
+        sortAlgo.selectSort((ArrayList<Integer>) arr, arr.size());
+        Assert.assertEquals(Arrays.toString(new int[]{1, 1, 2, 3, 4, 5}), arr.toString());
+    }
 }
