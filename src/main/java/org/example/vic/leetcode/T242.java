@@ -1,6 +1,12 @@
+package org.example.vic.leetcode;
 
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+/**
+ * T242
+ *
+ * @author vic
+ * @since 2024-11-06
+ */
+public class T242 {
     /**
      * 是否异位
      *
@@ -25,4 +31,3 @@ class Solution {
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
